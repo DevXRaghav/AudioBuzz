@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Cloud Platform</title>
+</head>
+<body>
+    <h1>Upload and Download Audio Files</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <input type="submit" value="Upload" />
+    </form>
+
+    <h2>Available Files</h2>
+    <ul>
+        {% for file in files %}
+        <li><a href="{{ url_for('uploaded_file', filename=file) }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
